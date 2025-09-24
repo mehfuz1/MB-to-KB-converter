@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MB to KB Converter</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header>
+    <div class="logo">Image Converter</div>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Tools</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+      <button id="themeToggle">🌙 Dark Mode</button>
+    </nav>
+  </header>
+
+  <!-- Main Section -->
+  <main>
+    <div class="tool-card">
+      <h1>Convert Image From MB To KB</h1>
+      <p class="subtitle">Upload and compress multiple images easily</p>
+
+      <!-- Drag & Drop Box -->
+      <div id="dropArea" class="drop-area">
+        <p>📂 Drag & Drop images here or click to select</p>
+        <input type="file" id="fileInput" accept="image/*" multiple>
+      </div>
+
+      <!-- Target Size -->
+      <div class="controls">
+        <input type="number" id="targetSize" placeholder="Enter size in KB">
+        <button onclick="convertImages()">Convert</button>
+      </div>
+
+      <!-- Progress & Results -->
+      <div id="results"></div>
+
+      <!-- Download All -->
+      <a id="downloadAll" class="download-btn" style="display:none;">⬇ Download All</a>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 MB to KB Converter | All Rights Reserved</p>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
