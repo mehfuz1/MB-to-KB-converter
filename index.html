@@ -5,161 +5,140 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MB to KB Converter</title>
   <style>
-    /* Reset */
-    * {margin: 0; padding: 0; box-sizing: border-box;}
-
     body {
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #6c63ff, #ff6ec4);
-      color: #2c3e50;
-    }
-
-    /* Navbar */
-    nav {
-      background: rgba(255,255,255,0.2);
-      backdrop-filter: blur(10px);
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: linear-gradient(135deg, #7f5af0, #ff5f9e);
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
       align-items: center;
-      padding: 12px 40px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-    nav .logo {
-      font-size: 20px;
-      font-weight: 600;
-      color: white;
-    }
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 20px;
-    }
-    nav ul li a {
-      text-decoration: none;
-      color: white;
-      font-weight: 500;
-      transition: 0.3s;
-    }
-    nav ul li a:hover {
-      color: #ffeaa7;
-      border-bottom: 2px solid #ffeaa7;
+      height: 100vh;
     }
 
-    /* Container */
     .container {
-      background: rgba(255, 255, 255, 0.9);
-      border-radius: 20px;
-      padding: 40px;
-      max-width: 600px;
-      margin: 60px auto;
-      text-align: center;
-      box-shadow: 0 12px 30px rgba(0,0,0,0.15);
-    }
-
-    .container h2 {
-      font-size: 28px;
-      margin-bottom: 10px;
-      color: #2c3e50;
-    }
-    .tagline {
-      font-size: 14px;
-      color: #555;
-      margin-bottom: 25px;
-    }
-
-    /* Upload box */
-    .upload-box {
-      border: 2px dashed #6c63ff;
-      border-radius: 15px;
+      background: #fff;
       padding: 30px;
-      margin-bottom: 25px;
-      transition: 0.3s;
-      background: #f8f9fa;
-    }
-    .upload-box:hover {
-      border-color: #ff6ec4;
-      box-shadow: 0 0 20px rgba(108,99,255,0.3);
-    }
-
-    input[type="file"] {
-      margin-top: 10px;
-    }
-
-    /* Input */
-    .input-box {
-      margin: 20px 0;
-    }
-    .input-box input {
-      width: 60%;
-      padding: 10px;
-      border: 2px solid #6c63ff;
-      border-radius: 25px;
-      outline: none;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
       text-align: center;
-      font-size: 16px;
+      width: 400px;
     }
 
-    /* Button */
-    button {
-      background: linear-gradient(135deg, #6c63ff, #ff6ec4);
-      color: white;
-      padding: 12px 25px;
-      border: none;
-      border-radius: 30px;
-      font-size: 16px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-    button:hover {
-      transform: scale(1.07);
-      box-shadow: 0 8px 20px rgba(108,99,255,0.4);
+    h2 {
+      margin-bottom: 10px;
+      color: #333;
     }
 
-    /* Footer */
-    footer {
-      text-align: center;
+    p {
+      margin-bottom: 20px;
+      color: #555;
+    }
+
+    .upload-box {
+      border: 2px dashed #7f5af0;
+      border-radius: 10px;
       padding: 20px;
-      margin-top: 40px;
-      color: white;
-      font-size: 14px;
+      margin-bottom: 20px;
+      cursor: pointer;
+    }
+
+    input[type="number"] {
+      width: 100%;
+      padding: 10px;
+      border: 2px solid #ccc;
+      border-radius: 10px;
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 16px;
+    }
+
+    button {
+      background: linear-gradient(135deg, #7f5af0, #ff5f9e);
+      border: none;
+      color: #fff;
+      padding: 12px 25px;
+      border-radius: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      opacity: 0.9;
+    }
+
+    footer {
+      margin-top: 15px;
+      font-size: 12px;
+      color: #666;
     }
   </style>
 </head>
 <body>
 
-  <!-- Navbar -->
-  <nav>
-    <div class="logo">📷 Image Converter</div>
-    <ul>
-      <li><a href="#">Home</a></li>
-      <li><a href="#">Tools</a></li>
-      <li><a href="#">About</a></li>
-      <li><a href="#">Contact</a></li>
-    </ul>
-  </nav>
-
-  <!-- Main Container -->
   <div class="container">
     <h2>Convert Image From MB to KB</h2>
-    <p class="tagline">Upload and compress your images quickly and easily 🚀</p>
+    <p>Upload and compress your images quickly and easily 🚀</p>
 
     <div class="upload-box">
-      <p>📂 Drag & Drop images here or click to select</p>
-      <input type="file" multiple>
+      <input type="file" id="fileInput" accept="image/*">
     </div>
 
-    <div class="input-box">
-      <input type="number" placeholder="Enter size in KB">
-    </div>
+    <input type="number" id="targetSize" placeholder="Enter target size in KB" value="200">
 
-    <button>Convert</button>
+    <button id="convertBtn">Convert</button>
+
+    <footer>
+      © 2025 MB to KB Converter | All Rights Reserved
+    </footer>
   </div>
 
-  <!-- Footer -->
-  <footer>
-    © 2025 MB to KB Converter | All Rights Reserved
-  </footer>
+  <script>
+    document.getElementById("convertBtn").addEventListener("click", function () {
+      const fileInput = document.getElementById("fileInput");
+      const targetSize = parseInt(document.getElementById("targetSize").value) * 1024; // KB → Bytes
 
+      if (!fileInput.files.length) {
+        alert("Please select an image first!");
+        return;
+      }
+
+      const file = fileInput.files[0];
+      const reader = new FileReader();
+
+      reader.onload = function (event) {
+        const img = new Image();
+        img.src = event.target.result;
+
+        img.onload = function () {
+          const canvas = document.createElement("canvas");
+          const ctx = canvas.getContext("2d");
+
+          // Resize canvas
+          canvas.width = img.width;
+          canvas.height = img.height;
+          ctx.drawImage(img, 0, 0);
+
+          let quality = 0.9;
+          let result;
+
+          do {
+            result = canvas.toDataURL("image/jpeg", quality);
+            let size = Math.round((result.length * 3) / 4); // Base64 → Bytes
+            if (size <= targetSize) break;
+            quality -= 0.05;
+          } while (quality > 0.1);
+
+          // Download compressed file
+          const link = document.createElement("a");
+          link.href = result;
+          link.download = "compressed.jpg";
+          link.click();
+        };
+      };
+
+      reader.readAsDataURL(file);
+    });
+  </script>
 </body>
 </html>
