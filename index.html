@@ -4,55 +4,162 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MB to KB Converter</title>
-  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Reset */
+    * {margin: 0; padding: 0; box-sizing: border-box;}
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #6c63ff, #ff6ec4);
+      color: #2c3e50;
+    }
+
+    /* Navbar */
+    nav {
+      background: rgba(255,255,255,0.2);
+      backdrop-filter: blur(10px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 40px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    nav .logo {
+      font-size: 20px;
+      font-weight: 600;
+      color: white;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: white;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+    nav ul li a:hover {
+      color: #ffeaa7;
+      border-bottom: 2px solid #ffeaa7;
+    }
+
+    /* Container */
+    .container {
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 20px;
+      padding: 40px;
+      max-width: 600px;
+      margin: 60px auto;
+      text-align: center;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+    }
+
+    .container h2 {
+      font-size: 28px;
+      margin-bottom: 10px;
+      color: #2c3e50;
+    }
+    .tagline {
+      font-size: 14px;
+      color: #555;
+      margin-bottom: 25px;
+    }
+
+    /* Upload box */
+    .upload-box {
+      border: 2px dashed #6c63ff;
+      border-radius: 15px;
+      padding: 30px;
+      margin-bottom: 25px;
+      transition: 0.3s;
+      background: #f8f9fa;
+    }
+    .upload-box:hover {
+      border-color: #ff6ec4;
+      box-shadow: 0 0 20px rgba(108,99,255,0.3);
+    }
+
+    input[type="file"] {
+      margin-top: 10px;
+    }
+
+    /* Input */
+    .input-box {
+      margin: 20px 0;
+    }
+    .input-box input {
+      width: 60%;
+      padding: 10px;
+      border: 2px solid #6c63ff;
+      border-radius: 25px;
+      outline: none;
+      text-align: center;
+      font-size: 16px;
+    }
+
+    /* Button */
+    button {
+      background: linear-gradient(135deg, #6c63ff, #ff6ec4);
+      color: white;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 30px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    button:hover {
+      transform: scale(1.07);
+      box-shadow: 0 8px 20px rgba(108,99,255,0.4);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+      color: white;
+      font-size: 14px;
+    }
+  </style>
 </head>
 <body>
 
   <!-- Navbar -->
-  <header>
-    <div class="logo">Image Converter</div>
-    <nav>
-      <a href="#">Home</a>
-      <a href="#">Tools</a>
-      <a href="#">About</a>
-      <a href="#">Contact</a>
-      <button id="themeToggle">🌙 Dark Mode</button>
-    </nav>
-  </header>
+  <nav>
+    <div class="logo">📷 Image Converter</div>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Tools</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
 
-  <!-- Main Section -->
-  <main>
-    <div class="tool-card">
-      <h1>Convert Image From MB To KB</h1>
-      <p class="subtitle">Upload and compress multiple images easily</p>
+  <!-- Main Container -->
+  <div class="container">
+    <h2>Convert Image From MB to KB</h2>
+    <p class="tagline">Upload and compress your images quickly and easily 🚀</p>
 
-      <!-- Drag & Drop Box -->
-      <div id="dropArea" class="drop-area">
-        <p>📂 Drag & Drop images here or click to select</p>
-        <input type="file" id="fileInput" accept="image/*" multiple>
-      </div>
-
-      <!-- Target Size -->
-      <div class="controls">
-        <input type="number" id="targetSize" placeholder="Enter size in KB">
-        <button onclick="convertImages()">Convert</button>
-      </div>
-
-      <!-- Progress & Results -->
-      <div id="results"></div>
-
-      <!-- Download All -->
-      <a id="downloadAll" class="download-btn" style="display:none;">⬇ Download All</a>
+    <div class="upload-box">
+      <p>📂 Drag & Drop images here or click to select</p>
+      <input type="file" multiple>
     </div>
-  </main>
+
+    <div class="input-box">
+      <input type="number" placeholder="Enter size in KB">
+    </div>
+
+    <button>Convert</button>
+  </div>
 
   <!-- Footer -->
   <footer>
-    <p>© 2025 MB to KB Converter | All Rights Reserved</p>
+    © 2025 MB to KB Converter | All Rights Reserved
   </footer>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
-  <script src="script.js"></script>
 </body>
 </html>
