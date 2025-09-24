@@ -1,190 +1,99 @@
-/* Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 body {
-  font-family: "Segoe UI", Arial, sans-serif;
-  background: #f7f9fc;
-  color: #333;
-  transition: 0.3s;
-}
-
-/* Dark Mode */
-body.dark {
-  background: #1e1e1e;
-  color: #f1f1f1;
-}
-
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 50px;
-  background: #2a3d66;
-  color: white;
-}
-
-header nav {
-  display: flex;
-  align-items: center;
-}
-
-header .logo {
-  font-size: 20px;
-  font-weight: bold;
-}
-
-header nav a {
-  margin-left: 20px;
-  color: white;
-  text-decoration: none;
-  font-weight: 500;
-}
-
-header nav a:hover {
-  text-decoration: underline;
-}
-
-#themeToggle {
-  margin-left: 20px;
-  background: #fff;
-  color: #2a3d66;
-  border: none;
-  padding: 8px 12px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-#themeToggle:hover {
-  background: #ddd;
-}
-
-main {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 50px 20px;
+  height: 100vh;
 }
 
-.tool-card {
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.card {
   background: white;
   padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
-  max-width: 600px;
-  width: 100%;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
   text-align: center;
-  transition: 0.3s;
+  width: 350px;
 }
 
-body.dark .tool-card {
-  background: #2c2c2c;
-}
-
-.tool-card h1 {
+.card h2 {
   margin-bottom: 10px;
-  color: #2a3d66;
+  color: #333;
 }
 
-body.dark .tool-card h1 {
-  color: #f1f1f1;
-}
-
-.subtitle {
+.card p {
+  font-size: 14px;
   margin-bottom: 20px;
   color: #666;
 }
 
-.drop-area {
-  border: 2px dashed #2a3d66;
-  padding: 30px;
+/* Upload Box */
+.upload-box {
+  border: 2px dashed #6a11cb;
+  padding: 20px;
   border-radius: 10px;
-  background: #f0f4fa;
-  margin-bottom: 20px;
   cursor: pointer;
-}
-
-.drop-area:hover {
-  background: #e6ecf7;
-}
-
-#fileInput {
-  display: block;
-  margin: 10px auto;
-}
-
-.controls {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
   margin-bottom: 20px;
-}
-
-.controls input {
-  padding: 10px;
-  width: 150px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-.controls button {
-  padding: 10px 20px;
-  border: none;
-  background: #2a3d66;
-  color: white;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.controls button:hover {
-  background: #1b294a;
-}
-
-.progress-bar {
-  width: 100%;
-  background: #ddd;
-  border-radius: 6px;
-  margin: 8px 0;
-}
-
-.progress {
-  height: 10px;
-  background: #28a745;
-  border-radius: 6px;
-  width: 0%;
-  transition: width 0.4s;
-}
-
-.result-item {
-  margin-bottom: 15px;
-  text-align: left;
   background: #f9f9f9;
-  padding: 12px;
-  border-radius: 8px;
+}
+.upload-box p {
+  margin: 0;
+  color: #444;
+}
+.upload-box input {
+  display: none;
 }
 
-.download-btn {
-  display: inline-block;
-  padding: 12px 20px;
-  background: #28a745;
-  color: white;
-  border-radius: 6px;
-  text-decoration: none;
+/* Input Group */
+.input-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+.input-group label {
+  font-size: 14px;
   font-weight: bold;
-  margin-top: 20px;
+  color: #444;
+  display: block;
+  margin-bottom: 5px;
+}
+.input-group input {
+  width: 100%;
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
 }
 
-.download-btn:hover {
-  background: #218838;
-}
-
-footer {
-  text-align: center;
-  padding: 15px;
-  background: #2a3d66;
+/* Button */
+button {
+  background: linear-gradient(90deg, #43e97b, #38f9d7);
+  border: none;
+  padding: 12px 20px;
   color: white;
-  margin-top: 50px;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+  width: 100%;
+}
+button:hover {
+  opacity: 0.9;
+}
+
+/* Download Link */
+#downloadLink {
+  display: block;
+  margin-top: 15px;
+  text-decoration: none;
+  color: #2575fc;
+  font-weight: bold;
 }
