@@ -114,26 +114,28 @@
           const canvas = document.createElement("canvas");
           const ctx = canvas.getContext("2d");
 
-          // Resize canvas
           canvas.width = img.width;
           canvas.height = img.height;
           ctx.drawImage(img, 0, 0);
 
           let quality = 0.9;
-          let result;
+          let result = canvas.toDataURL("image/jpeg", quality);
 
-          do {
-            result = canvas.toDataURL("image/jpeg", quality);
-            let size = Math.round((result.length * 3) / 4); // Base64 → Bytes
-            if (size <= targetSize) break;
+          // compression loop
+          while (true) {
+            let size = Math.round((result.length * 3) / 4); // Base64 size in bytes
+            if (size <= targetSize || quality <= 0.1) break;
             quality -= 0.05;
-          } while (quality > 0.1);
+            result = canvas.toDataURL("image/jpeg", quality);
+          }
 
-          // Download compressed file
+          // final download
           const link = document.createElement("a");
           link.href = result;
           link.download = "compressed.jpg";
+          document.body.appendChild(link);
           link.click();
+          document.body.removeChild(link);
         };
       };
 
